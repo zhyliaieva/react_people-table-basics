@@ -11,7 +11,7 @@ export const PeopleTable = () => {
   const [loading, setLoading] = useState(true);
   const [isErrorVisible, setIsErrorVisible] = useState(false);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const { personId } = useParams();
+  const { slug } = useParams();
 
   function loadPeople() {
     setLoading(true);
@@ -38,10 +38,10 @@ export const PeopleTable = () => {
   useEffect(loadPeople, []);
 
   useEffect(() => {
-    if (personId) {
-      setSelectedSlug(personId);
+    if (slug) {
+      setSelectedSlug(slug);
     }
-  }, [personId]);
+  }, [slug]);
 
   return (
     <>
@@ -71,7 +71,6 @@ export const PeopleTable = () => {
                     ? 'has-background-warning'
                     : ''
                 }
-                onClick={() => setSelectedSlug(person.slug.trim())}
               >
                 <td>
                   <PersonLink personName={person.name} people={people} />
@@ -95,11 +94,6 @@ export const PeopleTable = () => {
       <div className="block">
         <div className="box table-container">
           {loading && <Loader />}
-          {!loading && (
-            <p data-cy="peopleLoadingError" className="has-text-danger">
-              {errorMessage}
-            </p>
-          )}
 
           {isErrorVisible && <p data-cy="noPeopleMessage">{errorMessage}</p>}
         </div>

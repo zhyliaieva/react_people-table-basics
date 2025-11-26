@@ -19,29 +19,27 @@ export const App = () => {
         aria-label="main navigation"
       >
         <div className="container">
-          <div className="navbar-item">
-            <Link
-              to="/"
-              className={
-                location.pathname === '/'
-                  ? 'navbar-item has-background-grey-lighter'
-                  : 'navbar-item'
-              }
-            >
-              Home
-            </Link>
+          <Link
+            to="/"
+            className={
+              location.pathname === '/'
+                ? 'navbar-item has-background-grey-lighter'
+                : 'navbar-item'
+            }
+          >
+            Home
+          </Link>
 
-            <Link
-              to="/people"
-              className={
-                location.pathname.startsWith('/people')
-                  ? 'navbar-item has-background-grey-lighter'
-                  : 'navbar-item'
-              }
-            >
-              People
-            </Link>
-          </div>
+          <Link
+            to="/people"
+            className={
+              location.pathname.startsWith('/people')
+                ? 'navbar-item has-background-grey-lighter'
+                : 'navbar-item'
+            }
+          >
+            People
+          </Link>
         </div>
       </nav>
 

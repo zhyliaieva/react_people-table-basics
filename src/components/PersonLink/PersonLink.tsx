@@ -17,7 +17,7 @@ export const PersonLink: React.FC<PersonLinkProps> = ({
     <>
       {person ? (
         <Link
-          to={`#/people/${person.slug}`}
+          to={`/people/${person.slug}`}
           className={person.sex === 'f' ? 'has-text-danger' : ''}
         >
           {personName}
