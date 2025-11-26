@@ -24,7 +24,7 @@ export const App = () => {
               to="/"
               className={
                 location.pathname === '/'
-                  ? 'has-background-grey-lighter'
+                  ? 'navbar-item has-background-grey-lighter'
                   : 'navbar-item'
               }
             >
@@ -35,7 +35,7 @@ export const App = () => {
               to="/people"
               className={
                 location.pathname.startsWith('/people')
-                  ? 'has-background-grey-lighter'
+                  ? 'navbar-item has-background-grey-lighter'
                   : 'navbar-item'
               }
             >
@@ -52,10 +52,8 @@ export const App = () => {
             <Route path="/" element={<HomePage />} />
 
             <Route path="people">
-              <Route path="people" element={<PeoplePage />} />
-
               <Route index element={<PeoplePage />} />
-              <Route path=":personId" element={<PeoplePage />} />
+              <Route path=":slug" element={<PeoplePage />} />
             </Route>
 
             <Route path="*" element={<NotFoundPage />} />
